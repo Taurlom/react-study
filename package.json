@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/Taurlom/react-study/issues"
   },
-  "homepage": "https://github.com/Taurlom/react-study#readme"
+  "homepage": "https://github.com/Taurlom/react-study#readme",
+  "devDependencies": {
+    "webpack": "^5.38.1",
+    "webpack-cli": "^4.7.2",
+    "webpack-dev-server": "^3.11.2"
+  }
 }
