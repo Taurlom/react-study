@@ -6,8 +6,6 @@ const path = require('path');
 const compiler = webpack(webpackConfig);
 
 compiler.run((err) => {
-    console.log('ssss');
-
     if (err) {
         console.log('Compilation failed', err);
     }

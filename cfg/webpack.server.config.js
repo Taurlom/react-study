@@ -10,12 +10,12 @@ module.exports = {
         filename: 'server.js'
     },
     resolve: {
-        extensions: [".ts", ".tsx", ".js"]
+        extensions: [".jsx", ".js", ".json"]
     },
     externals: [nodeExternals()],
     module: {
         rules: [
-            { test: /\.tsx?$/, loader: "ts-loader" }
+            { test: /\.[jt]sx?$/, use: ["ts-loader"] }
         ]
     }
 };

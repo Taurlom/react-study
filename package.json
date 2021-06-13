@@ -2,10 +2,11 @@
   "name": "react-study",
   "version": "1.0.0",
   "description": "",
-  "main": "index.tsx",
+  "main": "index.jsx",
   "scripts": {
-    "build": "webpack",
-    "dev": "webpack serve",
+    "build:dev": "cross-env NODE_ENV=development webpack",
+    "build:prod": "cross-env NODE_ENV=production webpack",
+    "dev": "cross-env NODE_ENV=development node ./bin/dev.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,13 +22,14 @@
   "devDependencies": {
     "@types/react": "^17.0.11",
     "@types/react-dom": "^17.0.7",
+    "cross-env": "^7.0.3",
     "html-webpack-plugin": "^5.3.1",
-    "ts-loader": "^9.2.3",
-    "typescript": "^4.3.2",
-    "webpack": "^5.38.1",
-    "webpack-cli": "^4.7.2",
+    "ts-loader": "^8.0.13",
+    "typescript": "^4.1.3",
+    "webpack": "^4.44.2",
+    "webpack-cli": "^4.3.1",
     "webpack-dev-server": "^3.11.2",
-    "webpack-node-externals": "^3.0.0"
+    "webpack-node-externals": "^2.5.2"
   },
   "dependencies": {
     "express": "^4.17.1",
