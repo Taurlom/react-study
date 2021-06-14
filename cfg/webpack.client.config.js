@@ -15,7 +15,10 @@ module.exports = {
     },
     module: {
         rules: [
-            { test: /\.[jt]sx?$/, use: ["ts-loader"] }
+            {
+                test: /\.[jt]sx?$/,
+                use: ['ts-loader']
+            }
         ]
     }
 };
