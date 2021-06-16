@@ -1,5 +1,6 @@
 const path = require('path');
 const nodeExternals = require('webpack-node-externals');
+const GLOBAL_CSS_REGEXP = /\.global\.css$/;
 
 module.exports = {
     target: 'node',
@@ -10,7 +11,7 @@ module.exports = {
         filename: 'server.js'
     },
     resolve: {
-        extensions: [".jsx", ".js", ".json"]
+        extensions: [".jsx", ".js", ".json", ".ts", ".tsx"]
     },
     externals: [nodeExternals()],
     module: {
@@ -34,6 +35,10 @@ module.exports = {
                     },
                     "sass-loader"
                 ]
+            },
+            {
+                test: GLOBAL_CSS_REGEXP,
+                use: ["css-loader"]
             }
         ]
     }

@@ -4,6 +4,8 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const NODE_ENV = process.env.NODE_ENV;
 const IS_DEV = NODE_ENV === 'development';
+const IS_PROD = NODE_ENV === 'production';
+const GLOBAL_CSS_REGEXP = /\.global\.css$/;
 
 module.exports = {
     mode: NODE_ENV ? NODE_ENV : 'development',
@@ -17,7 +19,7 @@ module.exports = {
         publicPath: '/static/'
     },
     resolve: {
-        extensions: [".jsx", ".js", "json"],
+        extensions: [".jsx", ".js", "json", ".ts", ".tsx"],
         alias: {
             'react-dom': IS_DEV ? '@hot-loader/react-dom' : 'react-dom'
         }
@@ -42,6 +44,10 @@ module.exports = {
                     },
                     "sass-loader"
                 ]
+            },
+            {
+                test: GLOBAL_CSS_REGEXP,
+                use: ["style-loader", "css-loader"]
             }
         ]
     },
