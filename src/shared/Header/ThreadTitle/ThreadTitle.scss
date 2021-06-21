@@ -1,0 +1,12 @@
+.title {
+  font-size: 20px;
+  line-height: 23px;
+  padding: 38px 20px 15px;
+
+  @media all and (min-width: 1024px) {
+    font-size: 28px;
+    line-height: 33px;
+    height: 130px;
+    padding: 47px 0 0;
+  }
+}

@@ -1,0 +1,26 @@
+.user {
+  display: flex;
+  align-items: center;
+}
+
+.avatar {
+  width: 20px;
+  height: 20px;
+  margin-right: 7px;
+  border-radius: 50%;
+  background-position: top center;
+  background-size: cover;
+  background-color: #666666;
+}
+
+.userName {
+  font-size: 10px;
+  line-height: 12px;
+  text-decoration: none;
+  color: var(--c-orange);
+
+  @media all and (min-width: 1024px) {
+    font-size: 14px;
+    line-height: 16px;
+  }
+}

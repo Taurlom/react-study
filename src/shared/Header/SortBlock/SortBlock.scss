@@ -1,0 +1,12 @@
+.box {
+  margin-bottom: 20px;
+  height: 36px;
+  border-radius: 7px;
+  background-color: var(--c-white);
+
+  @media all and (min-width: 1024px) {
+    width: 100%;
+    margin-bottom: 0;
+    background-color: transparent;
+  }
+}

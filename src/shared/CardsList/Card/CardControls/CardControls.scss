@@ -1,0 +1,49 @@
+.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  height: 40px;
+
+  @media all and (min-width: 1024px) {
+    align-self: center;
+    padding-right: 0;
+  }
+}
+
+.commentsButton {
+  display: flex;
+  align-items: flex-start;
+  color: var(--c-grayc4);
+
+  @media all and (min-width: 1024px) {
+    display: none;
+  }
+}
+
+.commentsCounter {
+  margin-left: 6px;
+}
+
+.sharingGroup {
+  display: flex;
+
+  @media all and (min-width: 1024px) {
+    display: none;
+  }
+}
+
+.sharingButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: var(--c-white);
+  border-radius: 50%;
+  background-color: var(--c-grayc4);
+  width: 20px;
+  height: 20px;
+
+  & + & {
+    margin-left: 15px;
+  }
+}

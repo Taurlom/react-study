@@ -1,0 +1,29 @@
+.menu {
+  position: absolute;
+  top: 17px;
+  right: 14px;
+
+  @media all and (min-width: 1024px) {
+    position: static;
+    display: flex;
+    align-items: center;
+  }
+}
+
+.menuButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  transition: .3s background-color;
+
+  &:hover {
+    background-color: var(--c-grayf4);
+  }
+
+  @media all and (min-width: 1024px) {
+    transform: rotate(90deg);
+  }
+}

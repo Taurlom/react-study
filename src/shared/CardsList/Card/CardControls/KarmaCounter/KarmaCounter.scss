@@ -1,0 +1,39 @@
+.box {
+  display: flex;
+
+  @media all and (min-width: 1024px) {
+    flex-direction: column;
+  }
+}
+
+.counter {
+  margin: 0 4px;
+  font-size: 12px;
+  line-height: 14px;
+  color: var(--c-grayc4);
+
+  @media all and (min-width: 1024px) {
+    font-size: 14px;
+    line-height: 16px;
+    margin: 7px 0;
+    color: var(--c-black);
+  }
+}
+
+.buttonUp,
+.buttonDown {
+  color: var(--c-grayc4);
+  transition: color .3s;
+}
+
+.buttonUp {
+  &:hover {
+    color: var(--c-green);
+  }
+}
+
+.buttonDown {
+  &:hover {
+    color: var(--c-orange);
+  }
+}
