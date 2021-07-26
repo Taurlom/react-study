@@ -1,12 +1,13 @@
 @import url("https://fonts.googleapis.com/css2?family=Roboto&display=swap;");
 
 :root {
-    --c-black: #333;
+    --c-black: #333333;
     --c-orange: #cc6633;
     --c-green: #a4cc33;
     --c-white: #fff;
     --c-grayf4: #f4f4f4;
     --c-grayf3: #f3f3f3;
+    --c-grayec: #ececec;
     --c-grayd9: #d9d9d9;
     --c-grayc4: #c4c4c4;
     --c-gray99: #999999;

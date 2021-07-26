@@ -1,17 +1,47 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { generateId } from "../../../../utils/ts/generateRandomIndex";
+import { compose } from "../../../../utils/ts/compose";
+import Dropdown from "../../../Dropdown/Dropdown";
+import CardMenuItem, { CardMenuItemProps } from "./CardMenuItem";
+import { stopPropagation } from "../../../../utils/react/stopPropagation";
 
 import styles from './CardMenu.scss';
 
-const CardMenu = () => (
-    <div className={styles.menu}>
-        <button className={styles.menuButton}>
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="5" viewBox="0 0 20 5" fill="none">
-                <circle cx="17.5" cy="2.5" r="2.5" transform="rotate(90 17.5 2.5)" fill="#D9D9D9"/>
-                <circle cx="10" cy="2.5" r="2.5" transform="rotate(90 10 2.5)" fill="#D9D9D9"/>
-                <circle cx="2.5" cy="2.5" r="2.5" transform="rotate(90 2.5 2.5)" fill="#D9D9D9"/>
-            </svg>
-        </button>
-    </div>
-);
+import { iconMenuButton } from "../../../Icons/Icons";
+import {GenericList, GenericListItem} from "../../../Dropdown/GenericList";
+import {CardMenuItemType} from "../../../Data/dropdowns";
+
+function setItemsId(items: CardMenuItemType[]) {
+    return items.map(generateId);
+}
+
+function getListItems(items: CardMenuItemProps[]) {
+    items.map((item) => {
+        item.value = <CardMenuItem id={item.id} text={item.text} icon={item.icon}/>
+    });
+    return items;
+}
+
+const cardMenuItems = compose<GenericListItem[]>(setItemsId, getListItems);
+
+interface CardMenuProps {
+    data: CardMenuItemType[];
+}
+
+const CardMenu = ({ data }: CardMenuProps) => {
+    const [isOpen, setIsOpen] = useState(false);
+    const button = <button className={styles.menuButton} onClick={stopPropagation(() => setIsOpen(true))}>{iconMenuButton}</button>;
+
+    return (
+        <div className={styles.menu}>
+            <Dropdown button={button} isOpen={isOpen}>
+                <div className={styles.menuBox}>
+                    <GenericList list={cardMenuItems(data)}/>
+                    <button className={styles.buttonClose} onClick={() => setIsOpen(false)}>Закрыть</button>
+                </div>
+            </Dropdown>
+        </div>
+    )
+};
 
 export default CardMenu;

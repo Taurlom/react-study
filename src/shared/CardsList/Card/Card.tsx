@@ -8,6 +8,8 @@ import CreateAt from "./CardContent/CreateAt/CreateAt";
 
 import styles from './Card.scss';
 
+import { CARD_MENU_DATA } from "../../Data/dropdowns";
+
 const Card = () => (
     <div className={styles.card}>
         <CardContent>
@@ -22,7 +24,7 @@ const Card = () => (
             </div>
         </CardContent>
         <CardPreview />
-        <CardMenu />
+        <CardMenu data={CARD_MENU_DATA} />
         <CardControls />
     </div>
 );
