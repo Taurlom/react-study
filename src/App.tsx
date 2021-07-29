@@ -5,13 +5,14 @@ import Layout from "./shared/Layout/Layout";
 import Header from "./shared/Header/Header";
 import Content from "./shared/Content/Content";
 import CardsList from "./shared/CardsList/CardsList";
+import { CARDS_DATA as cards } from "./shared/Data/cards"
 
 function AppComponent() {
     return (
       <Layout>
           <Header />
           <Content>
-              <CardsList />
+              <CardsList cards={cards} />
           </Content>
       </Layout>
     );

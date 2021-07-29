@@ -25,6 +25,7 @@ function getListItems(items: CardMenuItemProps[]) {
 const cardMenuItems = compose<GenericListItem[]>(setItemsId, getListItems);
 
 interface CardMenuProps {
+    cardId: string;
     data: CardMenuItemType[];
 }
 

@@ -2,9 +2,13 @@ import React from 'react';
 
 import styles from './CreateAt.scss';
 
-const CreateAt = () => (
+interface CreateAtProps {
+    date: string;
+}
+
+const CreateAt = ({ date }: CreateAtProps) => (
     <div className={styles.createAt}>
-        <span className={styles.prefix}>опубликовано&nbsp;</span>4 часа назад
+        <span className={styles.prefix}>опубликовано&nbsp;</span>{date}
     </div>
 );
 
