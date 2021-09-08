@@ -1,29 +1,22 @@
-import {iconCancel, iconComments, iconSave, iconShare, iconWarning} from "../Icons/Icons";
-
 export const CARD_MENU_DATA = [
     {
         text: 'Комментарии',
-        icon: iconComments
+        icon: 'comments'
     },
     {
         text: 'Поделиться',
-        icon: iconShare
+        icon: 'share'
     },
     {
         text: 'Скрыть',
-        icon: iconCancel
+        icon: 'cancel'
     },
     {
         text: 'Сохранить',
-        icon: iconSave
+        icon: 'save'
     },
     {
         text: 'Пожаловаться',
-        icon: iconWarning
+        icon: 'warning'
     },
 ];
-
-export type CardMenuItemType = {
-    text: string,
-    icon: React.ReactNode
-}

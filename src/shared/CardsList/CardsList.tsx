@@ -16,7 +16,7 @@ interface CardsListProps {
 
 const CardsList = ({ cards }: CardsListProps) => (
     <div className={styles.cardList}>
-        {cards.map(card => <Card cardId={card.id} create={card.create} user={card.user} />)}
+        {cards.map(card => <Card key={card.id} cardId={card.id} create={card.create} user={card.user} />)}
     </div>
 );
 

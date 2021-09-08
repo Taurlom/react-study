@@ -9,6 +9,12 @@ import CreateAt from "./CardContent/CreateAt/CreateAt";
 import styles from './Card.scss';
 
 import { CARD_MENU_DATA } from "../../Data/dropdowns";
+import {IconProps} from "../../Icon/Icon";
+
+type CardMenuDataType = {
+    text: string,
+    icon: IconProps['name']
+}
 
 interface CardProps {
     cardId: string;
@@ -30,7 +36,7 @@ const Card = ({ cardId, create, user }: CardProps) => (
             </div>
         </CardContent>
         <CardPreview />
-        <CardMenu data={CARD_MENU_DATA} cardId={cardId} />
+        <CardMenu data={CARD_MENU_DATA as CardMenuDataType[]} cardId={cardId} />
         <CardControls />
     </div>
 );

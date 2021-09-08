@@ -1,43 +1,30 @@
 import React, { useState } from 'react';
 import { generateId } from "../../../../utils/ts/generateRandomIndex";
-import { compose } from "../../../../utils/ts/compose";
 import Dropdown from "../../../Dropdown/Dropdown";
-import CardMenuItem, { CardMenuItemProps } from "./CardMenuItem";
+import CardMenuItem from "./CardMenuItem";
 import { stopPropagation } from "../../../../utils/react/stopPropagation";
+import Icon, { IconProps } from "../../../Icon/Icon";
 
 import styles from './CardMenu.scss';
 
-import { iconMenuButton } from "../../../Icons/Icons";
-import {GenericList, GenericListItem} from "../../../Dropdown/GenericList";
-import {CardMenuItemType} from "../../../Data/dropdowns";
-
-function setItemsId(items: CardMenuItemType[]) {
-    return items.map(generateId);
-}
-
-function getListItems(items: CardMenuItemProps[]) {
-    items.map((item) => {
-        item.value = <CardMenuItem id={item.id} text={item.text} icon={item.icon}/>
-    });
-    return items;
-}
-
-const cardMenuItems = compose<GenericListItem[]>(setItemsId, getListItems);
-
 interface CardMenuProps {
     cardId: string;
-    data: CardMenuItemType[];
+    data: {
+        text: string,
+        icon: IconProps['name']
+    }[];
 }
 
 const CardMenu = ({ data }: CardMenuProps) => {
     const [isOpen, setIsOpen] = useState(false);
-    const button = <button className={styles.menuButton} onClick={stopPropagation(() => setIsOpen(true))}>{iconMenuButton}</button>;
+    const button = <button className={styles.menuButton} onClick={stopPropagation(() => setIsOpen(true))}><Icon name="menubtn" /></button>;
+    const withId = data.map(generateId);
 
     return (
         <div className={styles.menu}>
             <Dropdown button={button} isOpen={isOpen}>
                 <div className={styles.menuBox}>
-                    <GenericList list={cardMenuItems(data)}/>
+                    {withId.map((item) => <CardMenuItem key={item.id} id={item.id} text={item.text} icon={item.icon} onClick={() => setIsOpen(false)}/>)}
                     <button className={styles.buttonClose} onClick={() => setIsOpen(false)}>Закрыть</button>
                 </div>
             </Dropdown>

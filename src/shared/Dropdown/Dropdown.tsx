@@ -18,19 +18,19 @@ const Dropdown = (props: DropdownProps) => {
     useEffect(() => setOpened(isOpen), [isOpen]);
     useEffect(() => {
         opened ? onOpen() : onClose()
-    }, [opened])
+    }, [opened]);
 
     const handleOpen = () => {
         if (isOpen === undefined) {
             setOpened(!opened);
         }
-     }
+     };
 
     const handleClose = () => {
         if (isOpen === undefined) {
             setOpened(false);
         }
-    }
+    };
 
     return (
         <div className={styles.container}>
@@ -44,6 +44,6 @@ const Dropdown = (props: DropdownProps) => {
             )}
         </div>
     );
-}
+};
 
 export default Dropdown;
