@@ -27,3 +27,7 @@ export const iconSave = (
 export const iconWarning = (
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 14"><path d="M0 14h16L8 0 0 14zm8.727-2.21H7.273v-1.474h1.454v1.473zm0-2.948H7.273V5.895h1.454v2.947z" fill="currentColor"/></svg>
 );
+
+export const iconLogin = (
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50"><path d="M25 0C11.2 0 0 11.2 0 25s11.2 25 25 25 25-11.2 25-25S38.8 0 25 0Zm0 7.5c4.15 0 7.5 3.35 7.5 7.5s-3.35 7.5-7.5 7.5a7.49 7.49 0 0 1-7.5-7.5c0-4.15 3.35-7.5 7.5-7.5ZM25 43c-6.25 0-11.775-3.2-15-8.05.075-4.975 10-7.7 15-7.7 4.975 0 14.925 2.725 15 7.7C36.775 39.8 31.25 43 25 43Z" fill="currentColor"/></svg>
+);

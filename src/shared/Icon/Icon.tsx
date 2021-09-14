@@ -7,7 +7,8 @@ import {
     iconMenuButton,
     iconSave,
     iconShare,
-    iconWarning
+    iconWarning,
+    iconLogin
 } from "./Icons/Icons";
 
 const icons = {
@@ -16,13 +17,13 @@ const icons = {
     menubtn: iconMenuButton,
     save: iconSave,
     share: iconShare,
-    warning: iconWarning
+    warning: iconWarning,
+    login: iconLogin
 };
 
 export interface IconProps {
     name: keyof typeof icons,
-    size?: number,
-    tag?: string
+    size?: number
 }
 
 const Icon = (props: IconProps) => {
