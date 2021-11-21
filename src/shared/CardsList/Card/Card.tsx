@@ -17,28 +17,31 @@ type CardMenuDataType = {
 }
 
 interface CardProps {
+    title: string;
     cardId: string;
-    create: string;
-    user: CardUserProps
+    create: number;
+    user: CardUserProps;
+    preview: string;
+    href: string;
 }
 
-const Card = ({ cardId, create, user }: CardProps) => (
-    <div className={styles.card}>
-        <CardContent>
-            <div className={styles.metaData}>
-                <CardUser name={user.name} />
-                <CreateAt date={create} />
-            </div>
-            <div className={styles.title}>
-                Flexbox (флексбокс) предназначен для вёрстки гибких макетов.
-                Flexbox (флексбокс) предназначен для вёрстки гибких макетов.
-                Flexbox (флексбокс) предназначен для вёрстки гибких макетов.
-            </div>
-        </CardContent>
-        <CardPreview />
-        <CardMenu data={CARD_MENU_DATA as CardMenuDataType[]} cardId={cardId} />
-        <CardControls />
-    </div>
-);
+const Card = (props: CardProps) => {
+    const {title, cardId, create, user, preview, href} = props;
+
+    return (
+        <a href={`https://www.reddit.com${href}`} className={styles.card}>
+            <CardContent>
+                <div className={styles.metaData}>
+                    <CardUser name={user.name}/>
+                    <CreateAt date={create}/>
+                </div>
+                <div className={styles.title}>{title}</div>
+            </CardContent>
+            <CardPreview url={preview}/>
+            <CardMenu data={CARD_MENU_DATA as CardMenuDataType[]} cardId={cardId}/>
+            <CardControls/>
+        </a>
+    );
+};
 
 export default Card;

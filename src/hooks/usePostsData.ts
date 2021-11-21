@@ -7,14 +7,16 @@ export const usePostsData = () => {
     const token = useContext(tokenContext);
 
     useEffect(() => {
-        axios.get('https://oauth.reddit.com/best', {
-            headers: {Authorization: `bearer ${token}`}
-        })
-            .then((res) => {
-                setData(res.data);
+        if (token) {
+            axios.get('https://oauth.reddit.com/best', {
+                headers: {Authorization: `bearer ${token}`}
             })
-            .catch(console.log)
-    }, []);
+                .then((res) => {
+                    setData(res.data.data.children);
+                })
+                .catch(console.log)
+        }
+    }, [token]);
 
     return [data];
 };
